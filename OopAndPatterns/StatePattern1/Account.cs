@@ -9,71 +9,37 @@ namespace OopAndPatterns.StatePattern1
     public class Account
     {
         public decimal Balance { get; private set; }
-        private Action OnUnfreeze { get; }
-
-        private Action ManageUnfreezing;
-
-        private bool isVerified;
-        private bool isClosed;
+        
+        private IAccountState state;
 
         public Account(Action onUnfreeze)
         {
-            this.OnUnfreeze = onUnfreeze;
-
-            this.ManageUnfreezing = this.RemainUnfrozen;
+            this.state = new NotVerifiedState(onUnfreeze);
         }
 
         public void Deposit(decimal amount)
         {
-            if (!isClosed)
-                return;
-
-            this.ManageUnfreezing();
-
-            this.Balance += amount;
+            this.state = this.state.Deposit(() => this.Balance += amount);
         }
 
         public void Withdraw(decimal amount)
         {
-            if (!isVerified)
-                return;
-            if (!isClosed)
-                return;
-
-            this.ManageUnfreezing();
-
-            this.Balance -= amount;
+            this.state = this.state.Withdraw(() => this.Balance -= amount);
         }
 
         public void HolderVerified()
         {
-            this.isVerified = true;
+            this.state = this.state.HolderVerified();
         }
 
         public void Close()
         {
-            this.isClosed = true;
+            this.state = this.state.Close();
         }
 
         public void Freeze()
         {
-            if (!isVerified)
-                return;
-            if (!isClosed)
-                return;
-            
-            this.ManageUnfreezing = this.Unfreeze;
-        }
-
-        private void Unfreeze()
-        {
-            this.OnUnfreeze();
-
-            this.ManageUnfreezing = this.RemainUnfrozen;
-        }
-
-        private void RemainUnfrozen()
-        {
+            this.state = this.state.Freeze();
         }
     }
 }
