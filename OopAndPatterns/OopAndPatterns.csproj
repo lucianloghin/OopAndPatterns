@@ -45,6 +45,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatePattern1\Account.cs" />
+    <Compile Include="StatePattern1\AccountInitialForm.cs" />
     <Compile Include="StatePattern1\ActiveState.cs" />
     <Compile Include="StatePattern1\ClosedState.cs" />
     <Compile Include="StatePattern1\FrozenState.cs" />
