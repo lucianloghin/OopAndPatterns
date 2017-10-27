@@ -13,19 +13,16 @@ namespace OopAndPatterns.NullObject
 
         }
 
-        private void ClaimWaranty(SaleProduct product, bool isInGoodCondition, bool isBroken)
+        private void ClaimWaranty(SaleProduct product)
         {
             DateTime now = DateTime.Now;
 
-            if (!isInGoodCondition &&
-                !isBroken &&
-                product.MoneyBackGuarantee.IsValidOn(now))
+            if (product.MoneyBackGuaranteeWarranty.IsValidOn(now))
             {
                 Console.WriteLine("Can return money to customer");
             }
 
-            if (isBroken &&
-                product.ExpressWaranty.IsValidOn(now))
+            if (product.NormalWaranty.IsValidOn(now))
             {
                 Console.WriteLine("Can send product to service");
             }

@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NullObject\IWarranty.cs" />
     <Compile Include="NullObject\SaleProduct.cs" />
     <Compile Include="NullObject\StoreClient.cs" />
+    <Compile Include="NullObject\VoidWarranty.cs" />
     <Compile Include="NullObject\Warranty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

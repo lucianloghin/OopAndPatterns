@@ -2,7 +2,7 @@
 
 namespace OopAndPatterns.NullObject
 {
-    public class Warranty
+    public class Warranty : IWarranty
     {
         private DateTime IssueDate { get; }
 

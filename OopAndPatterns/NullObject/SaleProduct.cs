@@ -8,15 +8,33 @@ namespace OopAndPatterns.NullObject
 {
     class SaleProduct
     {
-        public Warranty MoneyBackGuarantee { get; }
-        public Warranty ExpressWaranty { get; }
-        public bool ProductInGoodCondition { get; }
-        
-        public SaleProduct(Warranty moneyBackGuarantee, Warranty express, bool productIsInGoodCondition)
+        // this acts as a return policy
+        public IWarranty MoneyBackGuaranteeWarranty { get; private set; }
+        public IWarranty NormalWaranty { get; private set; }
+        private IWarranty NotOperationalWarranty { get; set; }
+
+        public SaleProduct(IWarranty moneyBackGuaranteeWaranty, IWarranty normalWaranty)
         {
-            this.MoneyBackGuarantee = moneyBackGuarantee ?? throw new ArgumentNullException("moneyBackGuarantee is null");
-            this.ExpressWaranty = express ?? throw new ArgumentNullException("express warranty is null");
-            this.ProductInGoodCondition = productIsInGoodCondition;
+            if (moneyBackGuaranteeWaranty == null)
+                throw new ArgumentNullException("moneyBackGuaranteeWaranty is null");
+            if (normalWaranty == null)
+                throw new ArgumentNullException("normalWaranty warranty is null");
+
+            this.MoneyBackGuaranteeWarranty = moneyBackGuaranteeWaranty;
+            this.NormalWaranty = new VoidWarranty();
+            this.NotOperationalWarranty = normalWaranty;
+        }
+
+        public void NotOperational()
+        {
+            this.NormalWaranty = this.NotOperationalWarranty;
+            this.MoneyBackGuaranteeWarranty = new VoidWarranty();
+        }
+
+        public void HasVisibleDamage()
+        {
+            this.MoneyBackGuaranteeWarranty = new VoidWarranty();
+            this.NormalWaranty = new VoidWarranty();
         }
     }
 }
