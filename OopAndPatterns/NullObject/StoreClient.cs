@@ -19,14 +19,12 @@ namespace OopAndPatterns.NullObject
 
             if (!isInGoodCondition &&
                 !isBroken &&
-                product.MoneyBackGuarantee != null &&
                 product.MoneyBackGuarantee.IsValidOn(now))
             {
                 Console.WriteLine("Can return money to customer");
             }
 
             if (isBroken &&
-                product.ExpressWaranty != null &&
                 product.ExpressWaranty.IsValidOn(now))
             {
                 Console.WriteLine("Can send product to service");

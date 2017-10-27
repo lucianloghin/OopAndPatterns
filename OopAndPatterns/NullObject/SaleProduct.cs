@@ -10,11 +10,13 @@ namespace OopAndPatterns.NullObject
     {
         public Warranty MoneyBackGuarantee { get; }
         public Warranty ExpressWaranty { get; }
-
-        public SaleProduct(Warranty moneyBackGuarantee, Warranty express)
+        public bool ProductInGoodCondition { get; }
+        
+        public SaleProduct(Warranty moneyBackGuarantee, Warranty express, bool productIsInGoodCondition)
         {
-            this.MoneyBackGuarantee = moneyBackGuarantee;
-            this.ExpressWaranty = express;
+            this.MoneyBackGuarantee = moneyBackGuarantee ?? throw new ArgumentNullException("moneyBackGuarantee is null");
+            this.ExpressWaranty = express ?? throw new ArgumentNullException("express warranty is null");
+            this.ProductInGoodCondition = productIsInGoodCondition;
         }
     }
 }
