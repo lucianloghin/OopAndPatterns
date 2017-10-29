@@ -8,9 +8,8 @@ namespace OopAndPatterns.NullObject
 {
     class VoidWarranty : IWarranty
     {
-        public bool IsValidOn(DateTime serviceDate)
+        public void Claim(DateTime serviceDate, Action onClaimed)
         {
-            return false;
         }
     }
 }

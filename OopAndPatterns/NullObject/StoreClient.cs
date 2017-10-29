@@ -17,15 +17,11 @@ namespace OopAndPatterns.NullObject
         {
             DateTime now = DateTime.Now;
 
-            if (product.MoneyBackGuaranteeWarranty.IsValidOn(now))
-            {
-                Console.WriteLine("Can return money to customer");
-            }
-
-            if (product.NormalWaranty.IsValidOn(now))
-            {
-                Console.WriteLine("Can send product to service");
-            }
+            product.MoneyBackGuaranteeWarranty
+                .Claim(now, () => Console.WriteLine("Can return money to customer"));
+            
+            product.NormalWaranty
+                .Claim(now, () => Console.WriteLine("Can send product to service"));
         }
     }
 }

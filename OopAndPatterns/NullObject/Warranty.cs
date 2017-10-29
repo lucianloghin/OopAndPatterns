@@ -6,14 +6,25 @@ namespace OopAndPatterns.NullObject
     {
         private DateTime IssueDate { get; }
 
+        // todo : add singleton
         public Warranty(DateTime issueDate)
         {
             this.IssueDate = issueDate;
         }
 
-        public bool IsValidOn(DateTime serviceDate)
+        public void Claim(DateTime serviceDate, Action onClaimed)
         {
-            return this.IssueDate > serviceDate;
+            if (!this.IsValidOn(serviceDate))
+            {
+                return;
+            }
+
+            onClaimed();
+        }
+
+        private bool IsValidOn(DateTime serviceDate)
+        {
+            return this.IssueDate >= serviceDate;
         }
     }
 }

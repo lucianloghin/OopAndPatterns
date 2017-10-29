@@ -4,6 +4,6 @@ namespace OopAndPatterns.NullObject
 {
     public interface IWarranty
     {
-        bool IsValidOn(DateTime serviceDate);
+        void Claim(DateTime serviceDate, Action onClaimed);
     }
 }

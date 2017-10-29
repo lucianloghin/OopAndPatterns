@@ -10,8 +10,10 @@ namespace OopAndPatterns.NullObject
     {
         // this acts as a return policy
         public IWarranty MoneyBackGuaranteeWarranty { get; private set; }
+
         public IWarranty NormalWaranty { get; private set; }
-        private IWarranty NotOperationalWarranty { get; set; }
+
+        private IWarranty NotOperationalWarranty { get; }
 
         public SaleProduct(IWarranty moneyBackGuaranteeWaranty, IWarranty normalWaranty)
         {
