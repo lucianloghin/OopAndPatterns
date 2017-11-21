@@ -13,7 +13,6 @@ namespace SingletonPattern
             Task.Factory.StartNew(() => Console.WriteLine(SingletonClass.Instance.GetHashCode()));
             Task.Factory.StartNew(() => Console.WriteLine(SingletonClass.Instance.GetHashCode()));
             Console.ReadLine();
-            SingletonClass s = new SingletonClass();
         }
     }
 }
