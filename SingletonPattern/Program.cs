@@ -10,8 +10,12 @@ namespace SingletonPattern
     {
         static void Main(string[] args)
         {
-            Task.Factory.StartNew(() => Console.WriteLine(SingletonClass.Instance.GetHashCode()));
-            Task.Factory.StartNew(() => Console.WriteLine(SingletonClass.Instance.GetHashCode()));
+            //LazySingletonV1.PrintSomething();
+
+            LazySingletonV1Updated.PrintSomething();
+            var x = LazySingletonV1Updated.Instance;
+            //LazySingletonV2.PrintSomething();
+
             Console.ReadLine();
         }
     }
