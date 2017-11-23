@@ -45,5 +45,28 @@ namespace SingletonPattern
 
             Assert.AreEqual(task1.Result, task2.Result);
         }
+
+        [TestMethod]
+        public void SingletonNotThreadSafeTest()
+        {
+            Task<int> task1 = Task.Factory.StartNew(() =>
+            {
+                return NotThreadSafeSingleton.Instance.GetHashCode();
+            });
+
+            Task<int> task2 = Task.Factory.StartNew(() =>
+            {
+                return NotThreadSafeSingleton.Instance.GetHashCode();
+            });
+
+            Task<int> task3 = Task.Factory.StartNew(() =>
+            {
+                return NotThreadSafeSingleton.Instance.GetHashCode();
+            });
+
+            Task.WaitAll();
+
+            Assert.AreEqual(task1.Result, task2.Result, task3.Result);
+        }
     }
 }
