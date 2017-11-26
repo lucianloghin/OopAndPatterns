@@ -4,18 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SingletonPattern
+namespace SingletonPatternAndStatic
 {
     partial class Program
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        //{
+        //    //LazySingletonV1.PrintSomething();
+
+        //    LazySingletonV1Updated.PrintSomething();
+        //    var x = LazySingletonV1Updated.Instance;
+        //    //LazySingletonV2.PrintSomething();
+
+        //    Console.ReadLine();
+        //}
+
+        // for BeforeFieldInit
+        static void Main()
         {
-            //LazySingletonV1.PrintSomething();
+            Console.WriteLine("-------start-------");
 
-            LazySingletonV1Updated.PrintSomething();
-            var x = LazySingletonV1Updated.Instance;
-            //LazySingletonV2.PrintSomething();
+            BeforeFieldInitExample.EchoAndReturn("Hello");
 
+            // var test = BeforeFieldInitExample.x;
+
+            Console.WriteLine("-------end-------");
             Console.ReadLine();
         }
     }

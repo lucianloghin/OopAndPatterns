@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SingletonPattern
+namespace SingletonPatternAndStatic
 {
     [TestClass]
     public class UnitTests

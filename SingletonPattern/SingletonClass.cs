@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 
-namespace SingletonPattern
+namespace SingletonPatternAndStatic
 {
     // A singleton class should not be inherited
     public sealed class SingletonClass
@@ -25,7 +25,7 @@ namespace SingletonPattern
             Debug.WriteLine("Private constructor");
         }
         
-        // dunno exactly why this helps, has something to do with beforefieldinit flag
+        // adding the static constructor removes the beforefieldinit flag
         static SingletonClass()
         {
             Debug.WriteLine("Static constructor");
