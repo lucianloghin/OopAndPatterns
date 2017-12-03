@@ -1,0 +1,6 @@
+﻿ITERATOR PATTERN
+
+- Helps iterating over collections without exposing their implementation
+- It provides a common way to iterate through different types of collections
+- The collection will not be responsible for knowing how to iterate over itself.
+This will be the responsability of the iterator. In other words, the iteration is ENCAPSULATED
