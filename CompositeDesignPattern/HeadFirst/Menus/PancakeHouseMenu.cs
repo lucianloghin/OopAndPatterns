@@ -3,7 +3,7 @@ using CompositeDesignPattern.HeadFirst.Iterators;
 
 namespace CompositeDesignPattern.HeadFirst.Menus
 {
-    class PancakeHouseMenu : IMenu
+    class PancakeHouseMenu
     {
         private readonly ArrayList menuItems = new ArrayList();
         public string MenuName { get; }

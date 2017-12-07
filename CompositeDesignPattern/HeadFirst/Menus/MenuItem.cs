@@ -3,7 +3,7 @@ using CompositeDesignPattern.HeadFirst.Iterators;
 
 namespace CompositeDesignPattern.HeadFirst.Menus
 {
-    class MenuItem : IMenu
+    class MenuItem : IMenuComponent
     {
         public string Name { get; }
         public string Description { get; }
@@ -23,11 +23,19 @@ namespace CompositeDesignPattern.HeadFirst.Menus
             Console.WriteLine($"Name: {this.Name}; Description: {this.Description}; Price: {this.Price}");
         }
 
-        public IIterator GetIterator()
+        public void Add(IMenuComponent component)
         {
-            return new SelfIterator(this);
+            throw new InvalidOperationException();
         }
 
-        public string MenuName { get; }
+        public void Remove(IMenuComponent component)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public IMenuComponent GetChild(int componentIndex)
+        {
+            throw new InvalidOperationException();
+        }
     }
 }

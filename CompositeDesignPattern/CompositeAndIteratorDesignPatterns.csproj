@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>CompositeDesignPattern</RootNamespace>
     <AssemblyName>CompositeDesignPattern</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,11 +49,11 @@
     <Compile Include="HeadFirst\Iterators\DinerMenuIterator.cs" />
     <Compile Include="HeadFirst\Iterators\IIteratable.cs" />
     <Compile Include="HeadFirst\Iterators\IIterator.cs" />
-    <Compile Include="HeadFirst\Menus\IMenu.cs" />
+    <Compile Include="HeadFirst\Menus\IMenuComponent.cs" />
+    <Compile Include="HeadFirst\Menus\Menu.cs" />
     <Compile Include="HeadFirst\Menus\MenuItem.cs" />
     <Compile Include="HeadFirst\Iterators\PancakeHouseIterator.cs" />
     <Compile Include="HeadFirst\Menus\PancakeHouseMenu.cs" />
-    <Compile Include="HeadFirst\Menus\SelfIterator.cs" />
     <Compile Include="HeadFirst\Waitress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

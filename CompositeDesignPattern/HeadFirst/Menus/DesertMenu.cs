@@ -7,21 +7,12 @@ using CompositeDesignPattern.HeadFirst.Iterators;
 
 namespace CompositeDesignPattern.HeadFirst.Menus
 {
-    class DesertMenu : MenuItem
+    class DesertMenu : Menu
     {
-        List<MenuItem> menuItems = new List<MenuItem>();
-
         public DesertMenu()
-            : base(null, null, false, Double.NaN)
+            : base("Dessert menu", "Dessert of course!")
         {
-            menuItems.Add(new MenuItem("Lava cake", "Lots of chocolate", true, 3.00));
+            this.Add(new MenuItem("Lava cake", "Lots of chocolate", true, 3.00));
         }
-
-        public IIterator GetIterator()
-        {
-            return new DesertMenuIterator(this.menuItems);
-        }
-
-        public string MenuName { get; }
     }
 }
