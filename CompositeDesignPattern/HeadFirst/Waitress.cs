@@ -37,6 +37,7 @@ namespace CompositeDesignPattern.HeadFirst
             while(iterator.HasNext())
             {
                 IMenuComponent component = (IMenuComponent)iterator.Next();
+                
                 if (component.IsVegetarian)
                 {
                     component.Print();

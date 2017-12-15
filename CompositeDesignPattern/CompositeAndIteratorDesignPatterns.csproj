@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,7 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeadFirst\ComponentCollection.cs" />
+    <Compile Include="HeadFirst\Iterators\ComponentCollectionIterator.cs" />
     <Compile Include="HeadFirst\Iterators\DesertMenuIterator.cs" />
+    <Compile Include="HeadFirst\Iterators\CompositeIterator.cs" />
+    <Compile Include="HeadFirst\Iterators\NullIterator.cs" />
     <Compile Include="HeadFirst\Menus\DesertMenu.cs" />
     <Compile Include="HeadFirst\Menus\DinerMenu.cs" />
     <Compile Include="HeadFirst\Iterators\DinerMenuIterator.cs" />
@@ -57,12 +62,16 @@
     <Compile Include="HeadFirst\Waitress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\CompositeIteratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HeadFirst\IteratorPattern.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

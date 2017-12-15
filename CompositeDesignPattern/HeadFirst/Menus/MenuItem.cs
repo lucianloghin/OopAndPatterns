@@ -37,5 +37,10 @@ namespace CompositeDesignPattern.HeadFirst.Menus
         {
             throw new InvalidOperationException();
         }
+
+        public IIterator CreateIterator()
+        {
+            return new NullIterator();
+        }
     }
 }

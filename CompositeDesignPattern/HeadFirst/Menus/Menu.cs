@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CompositeDesignPattern.HeadFirst.Iterators;
 
 namespace CompositeDesignPattern.HeadFirst.Menus
 {
     class Menu : IMenuComponent
     {
-        private List<IMenuComponent> menuComponents = new List<IMenuComponent>();
+        private ComponentCollection menuComponents = new ComponentCollection();
 
         public Menu(string name, string description)
         {
@@ -30,6 +31,11 @@ namespace CompositeDesignPattern.HeadFirst.Menus
             this.menuComponents.Add(component);
         }
 
+        public IIterator CreateIterator()
+        {
+            return new CompositeIterator(this.menuComponents.GetIterator());
+        }
+
         public IMenuComponent GetChild(int componentIndex)
         {
             return this.menuComponents[componentIndex];
@@ -39,8 +45,11 @@ namespace CompositeDesignPattern.HeadFirst.Menus
         {
             Console.WriteLine($"{this.Name} - {this.Description}");
 
-            foreach (IMenuComponent component in menuComponents)
+            IIterator iterator = menuComponents.GetIterator();
+
+            while (iterator.HasNext())
             {
+                IMenuComponent component = (IMenuComponent)iterator.Next();
                 component.Print();
             }
         }
