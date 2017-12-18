@@ -6,20 +6,22 @@ namespace CompositeDesignPattern.HeadFirst.Menus
 {
     internal class CompositeIterator : IIterator
     {
-        private IIterator iterator;
-        private ComponentCollection collection;
-        private Stack<IIterator> iterators = new Stack<IIterator>();
+        private readonly Stack<IIterator> iterators = new Stack<IIterator>();
+        private IIterator currentIterator;
 
         public CompositeIterator(IIterator iterator)
         {
-            this.iterator = iterator;
+            this.currentIterator = iterator;
+            this.iterators.Push(iterator);
         }
 
         public bool HasNext()
         {
-            bool hasNext = this.iterator.HasNext();
+            return true;
 
-            if (!hasNext)
+            bool currentIteratorHasNext = this.currentIterator.HasNext();
+
+            if (!currentIteratorHasNext)
             {
                 if (this.iterators.Count != 0)
                 {
@@ -27,13 +29,19 @@ namespace CompositeDesignPattern.HeadFirst.Menus
                 }
             }
 
-            return hasNext;
+            return currentIteratorHasNext;
         }
 
         public object Next()
         {
-            IMenuComponent nextComponent = this.GetNextComponent();
-            
+            IMenuComponent nextComponent = (IMenuComponent)this.currentIterator.Next();
+
+            if (nextComponent == null)
+            {
+                this.SetPreviousIterator();
+                return this.Next();
+            }
+
             if (nextComponent is MenuItem)
             {
                 return nextComponent;
@@ -46,41 +54,20 @@ namespace CompositeDesignPattern.HeadFirst.Menus
 
         private void SetNextIteratorBasedOnComponent(IMenuComponent nextComponent)
         {
-            this.iterator = nextComponent.CreateIterator();
-            this.iterators.Push(this.iterator);
+            this.currentIterator = nextComponent.CreateIterator();
+            this.iterators.Push(this.currentIterator);
         }
-
-        private IMenuComponent GetNextComponent()
-        {
-            return (IMenuComponent)this.iterator.Next();
-        }
-
-        private IMenuComponent GetNextBasedOnCurrentComponent(IMenuComponent component)
-        {
-            if (component is MenuItem)
-            {
-                this.SetPreviousIterator();
-                return component;
-            }
-
-            this.SaveCurrentIterator();
-            IMenuComponent nextComponent = this.GetNextComponent();
-
-            return this.GetNextBasedOnCurrentComponent(nextComponent);
-        }
-
-
 
         private void SaveCurrentIterator()
         {
-            this.iterators.Push(this.iterator);
+            this.iterators.Push(this.currentIterator);
         }
 
         private void SetPreviousIterator()
         {
             if (this.iterators.Count != 0)
             {
-                this.iterator = this.iterators.Pop();
+                this.currentIterator = this.iterators.Pop();
             }
         }
     }
