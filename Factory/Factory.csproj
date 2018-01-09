@@ -42,11 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pizzas\ChicagoPizza.cs" />
+    <Compile Include="Factory\ChicagoPizzaFactory.cs" />
+    <Compile Include="Pizzas\NYPizza.cs" />
+    <Compile Include="Factory\NYPizzaFactory.cs" />
+    <Compile Include="Factory\IPizzaFactory.cs" />
     <Compile Include="Pizzas\CheesePizza.cs" />
     <Compile Include="Pizzas\PepperoniPizza.cs" />
     <Compile Include="Pizzas\Pizza.cs" />
-    <Compile Include="PizzaStore.cs" />
-    <Compile Include="PizzaStorePizzaFactory.cs" />
+    <Compile Include="Clients\PizzaStore.cs" />
+    <Compile Include="Factory\PizzaStorePizzaFactory.cs" />
     <Compile Include="Pizzas\PizzaType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,8 +60,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Factory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
