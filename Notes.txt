@@ -1,0 +1,12 @@
+Design principle: incapsulate what varies
+Design principle: program to an interface, not an implementation
+Design principle: favor composition over inheritance
+Design principle: strive for loosely coupled designs between objects that interact
+Design principle: classes should be open for extension, but closed for modification
+
+HAS-A; IS-A; IMPLEMENTS
+
+What are design patterns good for?
+- it sets a vocabulary that can be used between developers
+- patterns allow to say more with less
+- talking using patterns allows you to keep the discussion at the design level
