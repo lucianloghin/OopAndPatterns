@@ -9,7 +9,7 @@ namespace OopAndPatterns.TryingStuff
     class RedheadDuck : Duck
     {
         private readonly IQuackable duckQuack = new StandardDuckQuack();
-        private readonly IFlyable duckFly = new DuckFly();
+        private readonly IFlyable duckFly = new StandardDuckFly();
 
         public RedheadDuck()
             : base(new StandardDuckDisplay(), new StandardeDuckSwim())
