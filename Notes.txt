@@ -10,3 +10,19 @@ What are design patterns good for?
 - it sets a vocabulary that can be used between developers
 - patterns allow to say more with less
 - talking using patterns allows you to keep the discussion at the design level
+
+Interface Segragation Principle:
+
+This is a direct result of respecting the Interface Segregation Principle (ISP) which promotes the idea that interfaces should reflect the needs of the clients. Interfaces belong to the clients, and thus they are named to reflect the types and objects the clients need and they will contain methods the clients wants to use.
+
+Dependency Inversion Principle: 
+
+Respecting DIP will:
+
+	- Almost force you into respecting OCP.
+	- Allow you to separate responsibilities.
+	- Make you correctly use subtyping.
+	- Offer you the opportunity to segregate your interfaces.
+
+	- As to why it is important, in short: changes are risky, and by depending on a concept instead of on an implementation, you reduce the need for change at call sites.
+
