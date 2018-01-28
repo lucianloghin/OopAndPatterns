@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\RemoteControl.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\LightOffCommand.cs" />
+    <Compile Include="Commands\LightOnCommand.cs" />
+    <Compile Include="Light.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
