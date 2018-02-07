@@ -3,6 +3,7 @@ Design principle: program to an interface, not an implementation
 Design principle: favor composition over inheritance
 Design principle: strive for loosely coupled designs between objects that interact
 Design principle: classes should be open for extension, but closed for modification
+Design principle: Abstractions should never depend upon details. Detail
 
 HAS-A; IS-A; IMPLEMENTS
 
