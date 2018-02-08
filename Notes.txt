@@ -27,3 +27,16 @@ Respecting DIP will:
 
 	- As to why it is important, in short: changes are risky, and by depending on a concept instead of on an implementation, you reduce the need for change at call sites.
 
+
+Strategy pattern:
+	
+Think of the Strategy Pattern as a flexible alternative to subclassing; if you use inheritance to define the behavior of a class, then you’re stuck with that behavior even if you need to change it. With Strategy you can change the behavior by composing with a different object.
+
+State pattern:
+
+Think of the State Pattern as an alternative to putting lots of conditionals in your context; by encapsulating the behaviors within state objects, you can simply change the state object in context to change its behavior.
+
+
+Patterns in general:
+
+If two patterns are simmilar, then it's all about the intent of each pattern
